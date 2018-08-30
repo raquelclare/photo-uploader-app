@@ -16,7 +16,7 @@ var storage = AvatarStorage({
 });
 
 var limits = {
-	files: 1 // allow only 1 file per request
+	files: 1, // allow only 1 file per request
 	fileSize: 1024 * 1024 // 1 MB (max) file size
 };
 
@@ -56,7 +56,7 @@ router.post('/upload', upload.single(process.env.AVATAR_FIELD), function(req, re
 	var matches = file.match(/^(.+?)_.+?\.(.+)$/i);
 
 	if (matches) {
-		files = _.map(['lg', 'md', 'sm'], functions(size) {
+		files = _.map(['lg', 'md', 'sm'], function(size) {
 			return matches[1] + '_' + size + '.' + matches[2];
 		});
 	} else {

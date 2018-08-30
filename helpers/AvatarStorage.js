@@ -65,7 +65,7 @@ function AvatarStorage(opts) {
 			break;
 
 			case 'threshold':
-			value = _.isFinite(value ? value : Number(value);
+			value = _.isFinite(value) ? value : Number(value);
 			object[key] = (value && value >= 0) ? value : defaultOptions[key];
 			break;
 
@@ -132,7 +132,7 @@ AvatarStorage.prototype._processImage = function(image, cb) {
 	// create a reference for this to use in local funstions
 	var that = this;
 
-	var batch [];
+	var batch = [];
 
 	// the responsive sizes
 	var sizes = ['lg', 'md', 'sm'];
